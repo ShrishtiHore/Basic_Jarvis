@@ -1,0 +1,9 @@
+# Basic_Jarvis
+a simple virtual assistant using python and wolframealpha to perform basic functions and operations 
+What is a virtual assistant?
+A virtual assistant also called a digital assistant, is an application program that can understand natural language (text or voice) and complete electronic tasks for the end user. Today’s virtual assistants are programmed with artificial intelligence, machine learning and voice recognition technology. As the end user interacts with his digital assistant, the AI programming uses sophisticated algorithms to learn from data input and become better at predicting the end user’s needs. Although our virtual assistant will only be performing some basic tasks like maths, finance, temperature and history we will be looking at adapting voice recognition technology to make it more robust and personal. Popular virtual assistants currently include Apple’s Siri, Google Now and Cortana, the digital assistant built into windows 8.1. Hope I have gotten you excited enough. Let’s start building!!!
+
+Wolframalpha API
+The core of this application is the wolframalpha API (http://www.wolframalpha.com). Basically wolframalpha is a computational knowledge engine. It can get statistical data, places & geography, mathematics problem, money & finance and all sort of stuffs you can think of. To make use of this API, you’ve to sign up (free) to obtain your API key. To do do, proceed to http://products.wolframlpha.com/api/. After sign up, click on “Get an AppID”, and fill out the Application name, and Description and finally copy your AppID for use in the application.
+Wikipedia API
+Wikipedia is a Python library that makes it easy to access and parse data from Wikipedia. It’s another core feature of this app. For more info visit https://pypi.python.org/pypi/wikipedia to try and get an understanding of what we are going to be doing with this API. 
