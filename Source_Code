@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jan 12 22:01:11 2019
+
+@author: Shrishti D Hore
+"""
+import wx
+import wikipedia
+import wolframalpha
+from espeak import espeak
+espeak.synth('Welcome Shrishti')
+class Myframe(wx.Frame):
+    def __init__(self):
+        wx.Frame._init_(self, None,
+        pos=wx.DefaultPosition, size=wx.Size(450, 100),
+        style=wx.MINIMIZE_BOX | wx.SYSTEM_MENU | wx.CAPTION |
+        wx.CLOSE_BOX | wx.CLIP_CHILDREN,
+        title="jarvis")
+        panel = wx.panel(self)
+        my_sizer = wx.BoxSizer(wx.VERTICAL)
+        lbl = wx.StaticText(panel, label = "Hello I'm Jarvis.Hope your having a great day.How may I help You ?")
+        my_sizer.Add(lbl, 0, wx.ALL, 5)
+        self.txt = wx.TextCtrl(panel, style=wx.TE_PROCESS_ENTER,size=(400,30))
+        self.txt.SetFocus()
+        self.txt.Bind(wx.EVT_TEXT_ENTER, self.OnEnter)
+        my_sizer.Add(self.txt, 0, wx.ALL, 5)
+        panel.SetSizer(my_sizer)
+        self.Show()
+    def OnEnter(self, event):
+        ans = self.txt.GetValue()
+        ans = ans.lower()
+        try:
+            app_id = "XVY9JH-TT7XY46A3J"
+            client = wolframalpha.Client(app_id)
+            res = client.query(ans)
+            answer = next(res.results).text
+            print(answer)
+            espeak.synth("The answer is " +answer)
+        except:
+            ans = input.split(' ')
+            ans =' '.join(ans[2:1])
+            espeak.synth("Searched Answer for "+ans )
+            print(wikipedia.summary(ans))
+            print(wikipedia.summary(ans))
+if __name__ == "__main__":
+    App = wx.App(True)
+    frame = Myframe()
+    App.MainLoop()
+    
